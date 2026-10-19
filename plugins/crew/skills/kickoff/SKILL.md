@@ -4,8 +4,8 @@ description: Starts a bigger piece of work with the crew – the lead role write
 ---
 # Kickoff
 
-Read `CREW.md` (in `~/.claude/crew/` or `.claude/crew/`) and the lead role's file. Work as the lead.
-No crew yet → tell the user to run `/crew:setup` first.
+Find the crew: `.claude/crew/CREW.md` in the current folder or its parents wins (folder crew); otherwise `~/.claude/crew/CREW.md`. No crew → tell the user to run `/crew:setup` first and stop.
+Read `CREW.md` and the lead role's file. Work as the lead.
 
 1. **Look for previous work** on the same thing: files, notes, earlier conversations. Done = you know what already exists.
 2. **Brief**: goal in one sentence, how we know it worked (a number or a clear check), what is out of scope, constraints (money, data, approvals from `CREW.md`). If the work adds something that must never break, add it to `CREW.md` → Must always work, with how to verify it. Done = the captain would sign it without changes.
