@@ -10,8 +10,10 @@ trap 'rm -f "$CLEAN"' EXIT
 tr -d '\r' < "$WORDS" | grep -v '^[[:space:]]*$' > "$CLEAN"
 [ -s "$CLEAN" ] || { echo "empty word list: $WORDS" >&2; exit 2; }
 grep -rniE -f "$CLEAN" --exclude-dir=.git --exclude=check-leaks.sh .
-case $? in
-  0) echo "LEAK: fix the lines above" >&2; exit 1 ;;
-  1) echo "clean" ;;
-  *) echo "check failed (bad pattern in $WORDS?)" >&2; exit 2 ;;
-esac
+FILES=$?
+# Commit authors and committers go public too; check the identity of the next commit as well.
+{ git log --all --format='%an <%ae>%n%cn <%ce>' 2>/dev/null; git var GIT_AUTHOR_IDENT 2>/dev/null; } | sort -u | grep -niE -f "$CLEAN"
+AUTHORS=$?
+[ $FILES -gt 1 ] || [ $AUTHORS -gt 1 ] && { echo "check failed (bad pattern in $WORDS?)" >&2; exit 2; }
+[ $FILES = 0 ] || [ $AUTHORS = 0 ] && { echo "LEAK: fix the lines above (files or commit identity)" >&2; exit 1; }
+echo "clean"
