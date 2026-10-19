@@ -36,7 +36,7 @@ Iterate until the user says ok. Done = the user confirmed the list and names.
 Tell the user first: Claude Code asks for permission before writing into `.claude` folders – that is expected, allow it for these files.
 For each role write `AGENTS_DIR/<slug>.md` from the template **role.md**:
 - `slug` = the name in lowercase ASCII, only `a-z`, `0-9` and `-` ("Ticket Triage" → `ticket-triage`, "Čáp" → `cap`); not `plan`, `explore`, `general-purpose` or another built-in agent name; if a file with that name exists, ask before overwriting.
-- `description` must say concretely when to use the role – Claude chooses roles by it.
+- `description` must say concretely when to use the role – Claude chooses roles by it. Write it entirely in the user's language, including the "Use when …" part.
 - **Bar** = 3–6 rules that make the output top-notch in the field (current best practice, not habit), each checkable. Put the user's rules from step 1.3 into the Bar of the roles they concern.
 - **Procedure** = 2–5 steps, each with `Done =` that anyone can verify.
 - **Lessons** stays empty.
