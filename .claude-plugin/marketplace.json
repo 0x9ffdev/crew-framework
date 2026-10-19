@@ -1,0 +1,16 @@
+{
+  "name": "crew-framework",
+  "owner": {
+    "name": "0x9ff"
+  },
+  "plugins": [
+    {
+      "name": "crew",
+      "source": "./plugins/crew",
+      "description": "Your own AI crew: roles tailored to your work, kickoff with clear briefs, and a retro that makes every role learn from your feedback."
+    }
+  ],
+  "metadata": {
+    "description": "Crew – your own AI crew for Claude Code, tailored to your work and learning from your feedback."
+  }
+}
