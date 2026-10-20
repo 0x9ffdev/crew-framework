@@ -17,6 +17,17 @@ Restartuj Claude a spusť:
 /crew:setup
 ```
 
+Repo je soukromé, takže potřebuješ přístup na GitHubu a přihlášení na svém počítači (třeba `gh auth login`). Když něco nejde, aktualizuj Claude Code: `claude update`.
+
+V desktopové aplikaci (záložka Code) se pluginy přidávají tlačítkem **+** vedle pole pro zprávu → **Add plugins**. Plugin z terminálu desktop vidí taky, takže nejjednodušší je nainstalovat ho jednou z terminálu, i když pak pracuješ v desktopu.
+
+Když příkaz `/plugin` nejde, nainstaluj plugin přímo z terminálu a pak spusť `claude` a `/crew:setup`:
+
+```
+claude plugin marketplace add 0x9ffdev/crew-framework
+claude plugin install crew@crew-framework
+```
+
 ## Co umí
 
 | Příkaz | Kdy |
@@ -41,4 +52,4 @@ Do Clauda dávej jen to, co ti firma povoluje. Pravidla pro data si posádka zap
 
 ---
 
-*English: a Claude Code plugin that interviews you, proposes a crew of roles tailored to your work, lets you name them, and makes every role learn from your feedback. Install: `/plugin marketplace add 0x9ffdev/crew-framework`, `/plugin install crew@crew-framework`, then `/crew:setup`.*
+*English: a Claude Code plugin that interviews you, proposes a crew of roles tailored to your work, lets you name them, and makes every role learn from your feedback. Install: `/plugin marketplace add 0x9ffdev/crew-framework`, `/plugin install crew@crew-framework`, then `/crew:setup`. If `/plugin` is missing (e.g. in the desktop app), run `claude plugin marketplace add 0x9ffdev/crew-framework` and `claude plugin install crew@crew-framework` in the terminal.*
